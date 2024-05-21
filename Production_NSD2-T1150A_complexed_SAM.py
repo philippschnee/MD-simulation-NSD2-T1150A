@@ -16,7 +16,7 @@ import numpy as np
 Variant = 'T1150A'     # or WT
 sim_time = '100ns'     # simulation time 
 Eq = '5ns-2kJ'         # equilibration
-number_replicates = 10 # how many replicates will be produced
+number_replicates = 1 # how many replicates will be produced
 count = 1              # starting number of replicates
 traj_folder = 'test_NSD2_T1150A'   # name of folder, where trajectories will be stored
 
@@ -244,7 +244,7 @@ print('force removed')
 # optional ligand restraint to force slight conformational changes
 if restrained_ligands:
     
-    integrator = mm.LangevinIntegrator(temperature*kelvin, 1/picosecond, 0.002*picoseconds)
+    integrator = mm.LangevinIntegrator(temperature, 1/picosecond, 0.002*picoseconds)
     simulation = app.Simulation(solvated_protein.topology, system, integrator, platform, platformProperties)
     simulation.context.setState(state_npt_EQ)
     simulation.reporters.append(app.StateDataReporter(stdout, 10000, step=True, potentialEnergy=True, temperature=True, progress=True, remainingTime=True, speed=True, totalSteps=SAM_restr_eq_Steps, separator='\t'))
@@ -259,7 +259,7 @@ if restrained_ligands:
     # equilibration with free ligand   
     n_forces = len(system.getForces())
     system.removeForce(n_forces-2)
-    integrator = mm.LangevinIntegrator(temperature*kelvin, 1/picosecond, 0.002*picoseconds)
+    integrator = mm.LangevinIntegrator(temperature, 1/picosecond, 0.002*picoseconds)
     simulation = app.Simulation(solvated_protein.topology, system, integrator, platform, platformProperties)
     simulation.context.setState(state_free_EQP)
     simulation.reporters.append(app.StateDataReporter(stdout, 10000, step=True, potentialEnergy=True, temperature=True, progress=True, remainingTime=True, speed=True, totalSteps=SAM_free_eq_Steps, separator='\t'))
@@ -293,7 +293,7 @@ while (count <= number_replicates):
 
  print('Simulating...')  
  # create new simulation object for production run with new integrator
- integrator = mm.LangevinIntegrator(temperature*kelvin, 1/picosecond, 0.002*picoseconds)
+ integrator = mm.LangevinIntegrator(temperature, 1/picosecond, 0.002*picoseconds)
  simulation = app.Simulation(solvated_protein.topology, system, integrator, platform, platformProperties)
  simulation.context.setState(state_free_EQ)
  simulation.reporters.append(app.StateDataReporter(stdout, 10000, step=True, potentialEnergy=True, temperature=True, progress=True, remainingTime=True, speed=True, totalSteps=Simulate_Steps, separator='\t'))

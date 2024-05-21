@@ -16,7 +16,7 @@ import numpy as np
 Variant = 'T1150A'       # or WT
 sim_time = '100ns'       # simulation time 
 Eq = '1ns'               # equilibration
-number_replicates = 33   # how many replicates will be produced
+number_replicates = 1   # how many replicates will be produced
 count = 1                # starting number of replicates
 traj_folder = 'test_sMD_NSD2_T1150A'         # name of folder, where trajectories will be stored
 
@@ -59,7 +59,7 @@ while (count <= number_replicates):
  
  npt_eq_Steps = 500000          # NPT equilibration; 1ns
  SAM_restr_eq_Steps = 500000    # SAM restrained equilibration; 1ns
- SAM_free_eq_Steps = 25000      # No restraints equilibration; 0.5ns
+ SAM_free_eq_Steps = 250000     # No restraints equilibration; 0.5ns
  
  restrained_eq_atoms = 'protein and chainid 1 name CA'   # MDTraj selection syntax; restrained backbone 
  force_eq_atoms = 50                                     # restraints in kilojoules_per_mole/unit.angstroms
