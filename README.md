@@ -19,7 +19,7 @@ in your terminal.
 
 The output should state the CUDA Version and driver version as displayed below
 
-
+![Example output from nvidia-smi](nvidia-smi.PNG)
 
 Best way to install packages is by using conda. Either install the full anaconda distribution (https://www.anaconda.com/) or the smaller footprint miniconda (https://docs.conda.io/en/latest/miniconda.html).
 
@@ -42,4 +42,5 @@ conda install anaconda::openpyxl
 ## Citation :bookmark_tabs:
 
 For the underlying MD data in the publication go to doi.org/10.18419/darus-3263.
+
 Please cite doi.org/10.18419/darus-3263 for the usage of this dataset and doi: 10.1016/j.jbc.2023.10479 for the publication.
