@@ -1,7 +1,7 @@
 # MD-simulation-NSD2-T1150A
 
 ## About :dna:
-This repo contains python scripts used in Khella et al. 2023 (doi: 10.1016/j.jbc.2023.104796). This includes MD simulations code and analysis scripts. The usage of these Python scripts is further explained in the enclosed README.pdf
+This repo contains python scripts used in Khella et al. 2023 (doi.org/10.1016/j.jbc.2023.104796). This includes MD simulations code and analysis scripts. The usage of these Python scripts is further explained in the enclosed README.pdf
 
 ## Installation :rocket:
 The MD simulation production and analysis scripts were designed for ubuntu based NVIDIA GPU servers using the cuda toolkit (Version 12). Visit 
@@ -45,4 +45,4 @@ For the underlying MD data in the publication go to **doi.org/10.18419/darus-326
 
 Please cite **doi.org/10.18419/darus-3263** for the usage of this dataset.
 
-Please cite **doi: 10.1016/j.jbc.2023.10479** for the publication.
+Please cite **doi.org/10.1016/j.jbc.2023.10479** for the publication.
