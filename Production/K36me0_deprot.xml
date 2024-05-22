@@ -1,0 +1,52 @@
+<ForceField>
+  <Info>
+    <DateGenerated>2022-04-01</DateGenerated>
+  </Info>
+  <Residues>
+	<Residue name="LYN" override="1">
+      <Atom charge="-0.25" name="N" type="protein-N"/>
+      <Atom charge="0.139" name="H" type="protein-H"/>
+      <Atom charge="-0.056" name="CA" type="protein-CX"/>
+      <Atom charge="0.143" name="HA" type="protein-H1"/>
+      <Atom charge="-0.19" name="CB" type="protein-C8"/>
+      <Atom charge="0.0975" name="HB2" type="protein-HC"/>
+      <Atom charge="0.0975" name="HB3" type="protein-HC"/>
+      <Atom charge="-0.152" name="CG" type="protein-C8"/>
+      <Atom charge="0.0845" name="HG2" type="protein-HC"/>
+      <Atom charge="0.0845" name="HG3" type="protein-HC"/>
+      <Atom charge="-0.162" name="CD" type="protein-C8"/>
+      <Atom charge="0.089" name="HD2" type="protein-HC"/>
+      <Atom charge="0.089" name="HD3" type="protein-HC"/>
+      <Atom charge="-0.078" name="CE" type="protein-C8"/>
+      <Atom charge="0.063" name="HE2" type="protein-HP"/>
+      <Atom charge="0.063" name="HE3" type="protein-HP"/>
+      <Atom charge="-0.349" name="NZ" type="protein-N3"/>
+      <Atom charge="0.1445" name="HZ2" type="protein-H"/>
+	  <Atom charge="0.1445" name="HZ3" type="protein-H"/>
+      <Atom charge="0.207" name="C" type="protein-C"/>
+      <Atom charge="-0.209" name="O" type="protein-O"/>
+      <Bond atomName1="N" atomName2="H"/>
+      <Bond atomName1="N" atomName2="CA"/>
+      <Bond atomName1="CA" atomName2="HA"/>
+      <Bond atomName1="CA" atomName2="CB"/>
+      <Bond atomName1="CA" atomName2="C"/>
+      <Bond atomName1="CB" atomName2="HB2"/>
+      <Bond atomName1="CB" atomName2="HB3"/>
+      <Bond atomName1="CB" atomName2="CG"/>
+      <Bond atomName1="CG" atomName2="HG2"/>
+      <Bond atomName1="CG" atomName2="HG3"/>
+      <Bond atomName1="CG" atomName2="CD"/>
+      <Bond atomName1="CD" atomName2="HD2"/>
+      <Bond atomName1="CD" atomName2="HD3"/>
+      <Bond atomName1="CD" atomName2="CE"/>
+      <Bond atomName1="CE" atomName2="HE2"/>
+      <Bond atomName1="CE" atomName2="HE3"/>
+      <Bond atomName1="CE" atomName2="NZ"/>
+      <Bond atomName1="NZ" atomName2="HZ2"/>
+      <Bond atomName1="NZ" atomName2="HZ3"/>
+      <Bond atomName1="C" atomName2="O"/>
+      <ExternalBond atomName="N"/>
+      <ExternalBond atomName="C"/>
+    </Residue>
+  </Residues>
+</ForceField>
