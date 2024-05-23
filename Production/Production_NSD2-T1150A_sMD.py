@@ -14,23 +14,25 @@ import numpy as np
 # file and folder variables, simulation variables specified below
 
 Variant = 'T1150A'       # or WT
+peptide = 'H3K36'        # complexed peptide
+methylation_state = '2' # define methylation state of K36; number between 0-3
 sim_time = '100ns'       # simulation time 
 Eq = '1ns'               # equilibration
 number_replicates = 1   # how many replicates will be produced
 count = 1                # starting number of replicates
-traj_folder = 'test_sMD_NSD2_T1150A'         # name of folder, where trajectories will be stored
+traj_folder = 'NSD2_{}_{}me{}_{}_sMD'.format(Variant, peptide, methylation_state, sim_time)         # name of folder, where trajectories will be stored
 
 while (count <= number_replicates):
  
  # Input Files
  
- pdb = PDBFile('NSD2-{}.pdb'.format(Variant))  # PDB File of NSD2
+ pdb = PDBFile('NSD2_{}_{}_complex.pdb'.format(Variant, peptide))  # PDB File of NSD2
  protein = app.Modeller(pdb.topology, pdb.positions)
  sim_forcefield = ('amber14-all.xml')
  sim_watermodel = ('amber14/tip4pew.xml')
  sim_gaff = 'gaff.xml'
  
- methylation_state = '2' # define methylation state of K36; number between 0-3
+ 
  
  if methylation_state == '0':                        
      ligand_names = ['LYN', 'SAM', 'ZNB']
@@ -59,7 +61,7 @@ while (count <= number_replicates):
  
  npt_eq_Steps = 500000          # NPT equilibration; 1ns
  SAM_restr_eq_Steps = 500000    # SAM restrained equilibration; 1ns
- SAM_free_eq_Steps = 250000     # No restraints equilibration; 0.5ns
+ SAM_free_eq_Steps = 25000      # No restraints equilibration; 0.5ns
  
  restrained_eq_atoms = 'protein and chainid 1 name CA'   # MDTraj selection syntax; restrained backbone 
  force_eq_atoms = 50                                     # restraints in kilojoules_per_mole/unit.angstroms
@@ -391,13 +393,13 @@ while (count <= number_replicates):
  simulation = app.Simulation(solvated_protein.topology, system, integrator, platform, platformProperties)
  simulation.context.setState(state_free_EQ)
  simulation.reporters.append(app.StateDataReporter(stdout, 10000, step=True, potentialEnergy=True, temperature=True, progress=True, remainingTime=True, speed=True, totalSteps=Simulate_Steps, separator='\t'))
- simulation.reporters.append(HDF5Reporter(traj_folder + '/' + 'production_sMD_NSD2_{}_H3K36me{}_{}_{}.h5'.format(Variant,methylation_state, sim_time,count), 10000, atomSubset=trajectory_out_indices))
+ simulation.reporters.append(HDF5Reporter(traj_folder + '/' + 'production_NSD2_{}_{}me{}_{}_sMD_{}.h5'.format(Variant,peptide, methylation_state, sim_time,count), 10000, atomSubset=trajectory_out_indices))
  print('production run of replicate {}...'.format(count))
  simulation.step(Simulate_Steps)
  state_production = simulation.context.getState(getPositions=True, getVelocities=True)
  state_production = simulation.context.getState(getPositions=True, enforcePeriodicBox=True)
  final_pos = state_production.getPositions()
- app.PDBFile.writeFile(simulation.topology, final_pos, open(traj_folder + '/' + 'production_sMD_NSD2_{}_H3K36me{}_{}_{}.pdb'.format(Variant,methylation_state, sim_time,count), 'w'), keepIds=True)
+ app.PDBFile.writeFile(simulation.topology, final_pos, open(traj_folder + '/' + 'production_NSD2_{}_{}me{}_{}_sMD_{}.pdb'.format(Variant,peptide, methylation_state, sim_time,count), 'w'), keepIds=True)
  print('Successful production of replicate {}...'.format(count))
  del(simulation)
  
