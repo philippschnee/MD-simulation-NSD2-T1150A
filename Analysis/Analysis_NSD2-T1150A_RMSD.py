@@ -16,7 +16,7 @@ Variant = 'T1150A'      # or WT
 traj_dict = {}
 for i in range(number_replicates):
     i=i+0
-    folder = ('/home/philipp/test_NSD2_T1150A/test_sMD_NSD2_T1150A/production_NSD2_{}_{}me{}_{}_{}.h5'.format(Variant, peptide, methylation_state, sim_time, i+1))
+    folder = ('/path-to-trajectory/production_NSD2_{}_{}me{}_{}_{}.h5'.format(Variant, peptide, methylation_state, sim_time, i+1))
     traj_dict[i+1] = mdt.load(folder)
 
 traj_list = []
@@ -29,7 +29,7 @@ topology = traj.topology
 print('Trajectories successfully loaded, joined and superposed')
 
 # load reference
-reference = mdt.load('/home/philipp/test_NSD2_T1150A/test_sMD_NSD2_T1150A/production_NSD2_T1150A_H3K36me2_100ns_1.h5')
+reference = mdt.load('/path-to-trajectory/production_NSD2_T1150A_H3K36me2_100ns_1.h5')
 ref_topology = reference.topology
 print('reference successfully loaded')
 

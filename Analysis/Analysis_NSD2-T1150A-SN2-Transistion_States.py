@@ -30,7 +30,7 @@ if methylation_state == '3':
 
 # load trajectory and topology
 while (count <= number_replicates):
- traj = mdt.load('/home/philipp/test_NSD2_T1150A/test_sMD_NSD2_T1150A/production_NSD2_{}_{}me{}_{}_{}.h5'.format(Variant, peptide, methylation_state, sim_time, count))
+ traj = mdt.load('/path-to-trajectory/production_NSD2_{}_{}me{}_{}_{}.h5'.format(Variant, peptide, methylation_state, sim_time, count))
  topology=traj.topology
 
 # calcualte SN2 Transition States
