@@ -8,9 +8,6 @@ import collections
 from collections import defaultdict
 import pandas as pd
 import itertools
-import warnings
-
-warnings.filterwarnings("ignore", message="top= kwargs ignored since this file parser does not support it")
 
 # input parameters
 

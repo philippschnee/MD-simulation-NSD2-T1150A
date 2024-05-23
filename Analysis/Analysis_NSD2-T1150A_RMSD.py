@@ -5,9 +5,6 @@ import re
 import numpy as np
 import collections
 import pandas as pd
-import warnings
-
-warnings.filterwarnings("ignore", message="top= kwargs ignored since this file parser does not support it")
 
 peptide = 'H3K36'
 methylation_state = '2' # methylation state of peptide

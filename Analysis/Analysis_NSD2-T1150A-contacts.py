@@ -8,9 +8,6 @@ from contact_map import ContactMap, ContactFrequency, ContactDifference, Residue
 import pickle
 import os
 import re
-import warnings
-
-warnings.filterwarnings("ignore", message="top= kwargs ignored since this file parser does not support it")
 
 # Input parameters. Needed to find and name the files.
 

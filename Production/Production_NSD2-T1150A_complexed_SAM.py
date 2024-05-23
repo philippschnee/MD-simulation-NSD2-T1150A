@@ -13,13 +13,13 @@ import numpy as np
 
 # file and folder variables, simulation variables specified below
 
-Variant = 'T1150A'     # or WT
+Variant = 'T1150A'      # or WT
 peptide = 'H3K36'
 methylation_state = '2' # define methylation state of K36; number between 0-3
-sim_time = '100ns'     # simulation time 
-Eq = '5ns-2kJ'         # equilibration
-number_replicates = 1 # how many replicates will be produced
-count = 1              # starting number of replicates
+sim_time = '100ns'      # simulation time 
+Eq = '5ns-2kJ'          # equilibration
+number_replicates = 1   # how many replicates will be produced
+count = 1               # starting number of replicates
 traj_folder = 'NSD2_{}_{}me{}_{}_complex'.format(Variant, peptide, methylation_state, sim_time)   # name of folder, where trajectories will be stored
 
 

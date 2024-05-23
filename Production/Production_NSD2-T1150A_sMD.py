@@ -15,10 +15,10 @@ import numpy as np
 
 Variant = 'T1150A'       # or WT
 peptide = 'H3K36'        # complexed peptide
-methylation_state = '2' # define methylation state of K36; number between 0-3
+methylation_state = '2'  # define methylation state of K36; number between 0-3
 sim_time = '100ns'       # simulation time 
 Eq = '1ns'               # equilibration
-number_replicates = 1   # how many replicates will be produced
+number_replicates = 1    # how many replicates will be produced
 count = 1                # starting number of replicates
 traj_folder = 'NSD2_{}_{}me{}_{}_sMD'.format(Variant, peptide, methylation_state, sim_time)         # name of folder, where trajectories will be stored
 
@@ -61,7 +61,7 @@ while (count <= number_replicates):
  
  npt_eq_Steps = 500000          # NPT equilibration; 1ns
  SAM_restr_eq_Steps = 500000    # SAM restrained equilibration; 1ns
- SAM_free_eq_Steps = 25000      # No restraints equilibration; 0.5ns
+ SAM_free_eq_Steps = 50000      # No restraints equilibration; 0.1ns
  
  restrained_eq_atoms = 'protein and chainid 1 name CA'   # MDTraj selection syntax; restrained backbone 
  force_eq_atoms = 50                                     # restraints in kilojoules_per_mole/unit.angstroms
